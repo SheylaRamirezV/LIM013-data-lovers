@@ -24,7 +24,8 @@
         </div>
       </div>
     </header>
-      <div class="container">
+
+      <div class="container" id="container">
         <div class="filterData">
           <select class="select-css" id="orderPoke">
             <option value="seleccione_opcion">Orden</option>
@@ -32,7 +33,16 @@
             <option value="down"> Z-A</option>
           </select>
         </div>
-        <div class="filterData">
+
+        <div clas="container">
+          <select class="select-css" id="orderCp">
+            <option value="seleccione_opcion">PC</option>
+            <option value="max">Máx PC</option>
+            <option value="min">Min PC</option>
+          </select>
+        </div>
+        
+        <div class="filterData"> 
           <select class="select-css" id="fullTypes">
             <option value="infoPokemon">Tipos</option>
             <option value="flying">Aire</option>
@@ -56,6 +66,7 @@
              
           </select>
         </div>
+
         <div class="filterData">
           <select class="select-css" id="selectRegion">
             <option value="seleccione_opcion">Región</option>
@@ -63,12 +74,12 @@
             <option value="johto">Johto</option>
           </select>
         </div>
+
         <div class="filterData">
           <form>
-            <input class="input-css" type="text" id="selectName" placeholder="Busca tu pokémon aquí">
-             
+            <input class="input-css" type="text" id="selectName" placeholder="Busca tu pokémon aquí">       
           </form>
-        </div>
+        </div> 
       </div>
     
       <div class="social-bar">
@@ -82,10 +93,68 @@
           <img src="img/iconoIt.png"/></a>
       </div>
 
-    <div id="dataCompleta">
+    <div class="dataCompleta" id="dataCompleta">
+    </div>
+      
+    <div class="showCards">
+      <h1>Info</h1>
+      <a href="#" id="open"></a>
+    </div>
+    <div id="pokeModal" class="modal">
+      <div class="flex" id="flex">
+        <div class="content-modal">
+          <div class="modal-header flex">
+              <span class="close" id="close">&times;</span>
+          </div>
+          <div class="modal-body">
+            <img class="poke-img-modal-body" src='${poke.img}'>
+            
+            <div class="info-modal-body">
+              <p class="poke-num">${poke.num}</p>
+              <p class="poke-name">${poke.name.toUpperCase()}</p>
+            </div>
+
+            <div class="details-modal-body">
+              <div class="details">
+                <img src="img/egg.png">
+                <p>${poke.egg}</p> 
+              </div>
+
+              <div class="details">
+                <img src="img/height.png">
+                <p>${poke.height}</p> 
+              </div>
+
+              <div class="details">
+                <img src="img/weight.png">
+                <p>${poke.weight}</p> 
+              </div>
+
+              <div class="details">
+                <img src="img/hp.png">
+                <p>${poke.stats['max-hp']}</p> 
+              </div>
+            </div>
+
+            <div class="details">
+              <img src="img/cp.png">
+              <p>${poke.stats['max-cp']}</p> 
+            </div>
+            
+            <div class="details">
+              <img src="img/power.png">
+              <p>${totalStats}</p> 
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-      <footer>
+    <div class="" id="batalla">
+
+    </div>
+
+        <footer>
           <div>
             <small>&copy; Copyright 2020. All Rights Reserved.</small>  
           </div>

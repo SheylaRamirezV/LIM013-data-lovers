@@ -9,7 +9,9 @@ const infoPokemon = data.pokemon;
 const divData= document.getElementById("dataCompleta")
 const fullTypes= document.getElementById("fullTypes")
 const orderPoke= document.getElementById("orderPoke")
+const orderCp= document.getElementById("orderCp") 
 const selectRegion= document.getElementById("selectRegion")
+const container= document.getElementById("container")
 
 function showPokemon(poke) {
     const pokeTypes = poke.type;
@@ -23,14 +25,13 @@ function showPokemon(poke) {
           <p class='poke-num'>#${poke.num}</p>
           <img class='poke-img' src='${poke.img}'>
           <p class='poke-name'><strong>${poke.name.toUpperCase()}</strong></p> 
-          <button>INFO</button>
       </div>
       `
 }
 divData.innerHTML = `
     ${infoPokemon.map(showPokemon).join("")}
     `;
-    
+
 // Filtro por tipo
 
 fullTypes.addEventListener("change", () => {
@@ -63,6 +64,22 @@ orderPoke.addEventListener("change", ()=>{
 
 });
 
+// Filtro por CP
+
+orderCp.addEventListener("change", () =>{
+    let selectCp = orderCp.value;
+    let pokedexCp = infoPokemon;
+    if (selectCp === 'max') {
+        filters.sortByCp(pokedexCp)
+    }
+    if (selectCp === 'min'){
+        filters.sortByCp(pokedexCp).reverse();
+    }
+    divData.innerHTML =  `
+        ${infoPokemon.stats['max-cp'].map(showPokemon).join("")}
+    `;
+});
+
 // Filtro por Región
 
 selectRegion.addEventListener("change", () => {
@@ -84,7 +101,14 @@ selectRegion.addEventListener("change", () => {
 });
 
 
-//------ Filtro por buscar pokemon ------ //
+const pokeBattle = document.querySelector("a[href='#']");
+pokeBattle.addEventListener("click", ()=>{
+    divData.classList.add('hide');
+    container.classList.add('hide'); 
+        
+}); 
+
+
 
 const selectName = document.getElementById('selectName');
     selectName.addEventListener('keyup', () => {

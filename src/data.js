@@ -34,6 +34,16 @@ const filters = {
       return myArray;
     },
 
+    sortByCp: (objectCp) => {
+      objectCp.sort(function (a,b){
+        let x = a.max-cp;
+        let y = b.max-cp;
+        if (x < y) {return stats['max-cp'];}
+        if (x > y) {return stats['max-cp'];}
+        return 0;
+      });
+      return objectCp;
+    },
 
 }
 
