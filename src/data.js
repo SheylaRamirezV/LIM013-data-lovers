@@ -1,7 +1,7 @@
 // estas funciones son de ejemplo
 const filters = {
 
-    filtroPorPokemon : (data,selectType) => {
+    filtroPorPokemon : (data, selectType) => {
         const cadaObjeto= data.filter((unObjeto)=>{ 
           return unObjeto.type.includes(selectType); 
         }); 
@@ -26,25 +26,48 @@ const filters = {
         return objetoRegion;
     },
 
-    filterSearch:(data,selectName) => {
-      const myArray= data.filter((myObject)=>{
+    filterSearch:(data, selectName) => {
+      const myArray= data.filter((myObject)=> {
         
         return myObject.name.includes(selectName);
-      })
-      return myArray;
-    },
-
-    sortByCp: (objectCp) => {
-      objectCp.sort(function (a,b){
-        let x = a.max-cp;
-        let y = b.max-cp;
-        if (x < y) {return stats['max-cp'];}
-        if (x > y) {return stats['max-cp'];}
-        return 0;
       });
-      return objectCp;
+      return myArray;
+
     },
 
+    sortByCp: (pokeCp, valueSelect) => {
+      console.log(valueSelect);
+      if (valueSelect === 'max') {
+        pokeCp.sort(function (a,b){
+          let cp1 = parseInt(a.stats["max-cp"]);
+          let cp2 = parseInt(b.stats["max-cp"]);
+          if(cp1 > cp2){
+          return 1;
+          } 
+          
+          if(cp1 < cp2){
+          return -1;
+          }
+          return 0;
+        }); 
+        return pokeCp.reverse();         
+      }
+      if (valueSelect === 'min') {
+        pokeCp.sort(function (a,b){
+          let cp1 = parseInt(a.stats["max-cp"]);
+          let cp2 = parseInt(b.stats["max-cp"]);
+          
+          if(cp1 < cp2){
+          return -1;
+          }
+          if(cp1 > cp2){
+            return 1; 
+          }
+          return 0;
+         });
+        return pokeCp;
+      } 
+    }
 }
 
 export default filters; 

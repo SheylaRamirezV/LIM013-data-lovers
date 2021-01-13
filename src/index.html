@@ -2,15 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Data Lovers</title>
+    <title>Poke-Search</title>
     <link rel="stylesheet" href="style.css"/>
+    <link rel="shortcut icon" href="/favicon.ico" />
     
   </head>
   <body>
     <header>
       <div class="header-content">
         <div class="logo">
-          <h1 class="textoLogo">Pokémon<b>GO!</b></h1>
+          <h1 class="textoLogo">Poke-Search</h1>
         </div>
         <div class="menu">
            <nav>
@@ -75,11 +76,12 @@
           </select>
         </div>
 
-        <div class="filterData">
-          <form>
-            <input class="input-css" type="text" id="selectName" placeholder="Busca tu pokémon aquí">       
-          </form>
-        </div> 
+          <div class="filterData">
+            <form>
+              <input class="input-css" type="text" id="selectName" placeholder="Busca tu pokémon aquí">       
+            </form>
+          </div>
+
       </div>
     
       <div class="social-bar">
@@ -94,66 +96,12 @@
       </div>
 
     <div class="dataCompleta" id="dataCompleta">
+    
+      <!-- ---- -->
+    
     </div>
-      
-    <div class="showCards">
-      <h1>Info</h1>
-      <a href="#" id="open"></a>
-    </div>
-    <div id="pokeModal" class="modal">
-      <div class="flex" id="flex">
-        <div class="content-modal">
-          <div class="modal-header flex">
-              <span class="close" id="close">&times;</span>
-          </div>
-          <div class="modal-body">
-            <img class="poke-img-modal-body" src='${poke.img}'>
-            
-            <div class="info-modal-body">
-              <p class="poke-num">${poke.num}</p>
-              <p class="poke-name">${poke.name.toUpperCase()}</p>
-            </div>
-
-            <div class="details-modal-body">
-              <div class="details">
-                <img src="img/egg.png">
-                <p>${poke.egg}</p> 
-              </div>
-
-              <div class="details">
-                <img src="img/height.png">
-                <p>${poke.height}</p> 
-              </div>
-
-              <div class="details">
-                <img src="img/weight.png">
-                <p>${poke.weight}</p> 
-              </div>
-
-              <div class="details">
-                <img src="img/hp.png">
-                <p>${poke.stats['max-hp']}</p> 
-              </div>
-            </div>
-
-            <div class="details">
-              <img src="img/cp.png">
-              <p>${poke.stats['max-cp']}</p> 
-            </div>
-            
-            <div class="details">
-              <img src="img/power.png">
-              <p>${totalStats}</p> 
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="" id="batalla">
-
-    </div>
-
+    <br>
+    <br>
         <footer>
           <div>
             <small>&copy; Copyright 2020. All Rights Reserved.</small>  
@@ -169,7 +117,7 @@
             <img class="logo-footer" src="img/gh-logo.png"/></a>
             <p> Shirley Ramos </p>
           </div>
-      </footer>
+        </footer>
 
     <script src="main.js" type="module"></script>
   </body>
